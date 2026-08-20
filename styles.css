@@ -2657,3 +2657,119 @@ text-align: center;
         align-items: center;
     }
 }
+/* ==========================================================================
+   PARCHE RESPONSIVE ADICIONAL (Hero, About/Flip-card, Know Me, iconos)
+   Corrige desbordes horizontales en celular sin tocar el diseño de escritorio
+   ========================================================================== */
+
+html, body {
+  overflow-x: hidden;
+}
+
+/* --- HERO: nombre gigante + stickers --- */
+@media (max-width: 900px) {
+  .bg-text {
+    font-size: 20vw;
+  }
+  .bg-text.maria { top: 15px; left: 15px; }
+  .bg-text.rivas { bottom: 20px; right: 15px; }
+
+  .circle, .hat, .pencil, .smile {
+    width: 110px !important;
+  }
+  .circle { left: 15px; bottom: 100px; }
+  .hat { right: 15px; bottom: 40px; }
+  .pencil { left: 20px; top: 15px; transform: none; }
+  .smile { right: 15px; top: 130px; }
+}
+
+@media (max-width: 480px) {
+  .bg-text { font-size: 22vw; }
+  .circle, .hat, .pencil, .smile { width: 80px !important; }
+}
+
+/* --- ABOUT / FLIP CARD ("THIS IS ME") --- */
+@media (max-width: 900px) {
+  .about {
+    flex-direction: column;
+    padding: 60px 20px;
+    gap: 30px;
+    text-align: center;
+  }
+  .flip-card {
+    width: min(320px, 85vw);
+    height: min(400px, 100vw);
+    margin: 0 auto;
+  }
+  .flip-card-front img,
+  .flip-card-back img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+  }
+  .about-content { max-width: 100%; }
+  .about-content h1 { font-size: 2.2rem; }
+  .about-content p { font-size: 1rem; }
+}
+
+/* --- ICONOS QUE NO DEBEN ESTIRARSE A 100% (toolbox, glass icons) --- */
+@media (max-width: 768px) {
+  .software-item img,
+  .program-card img,
+  .mini-card img {
+    width: 60% !important;
+    max-width: 60% !important;
+    height: auto !important;
+  }
+}
+
+/* --- KNOW ME: split-container / card-item (Cursos y talleres) --- */
+@media (max-width: 900px) {
+  .knowme-section {
+    align-items: center;
+    padding: 90px 6% 40px;
+    text-align: center;
+  }
+  #typing-text {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+  .split-container {
+    flex-direction: column;
+    padding: 50px 6% 80px;
+    gap: 50px;
+  }
+  .sticky-text {
+    position: static;
+    max-width: 100%;
+    text-align: center;
+  }
+  .subtitulos {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .texto2 {
+    text-align: center;
+  }
+  .stack-side {
+    align-items: center;
+    margin-left: 0;
+    gap: 40px;
+    padding-bottom: 0;
+  }
+  .card-item {
+    position: static;
+    width: min(340px, 85vw);
+    height: min(420px, 100vw);
+  }
+}
+
+/* --- Ajustes extra para celulares muy pequeños (<= 380px) --- */
+@media (max-width: 380px) {
+  .bg-text { font-size: 24vw; }
+  .flip-card { width: 88vw; height: 320px; }
+  .footer-logo { font-size: 2.4rem !important; }
+  .dual-section-title, .centered-title { font-size: 2rem !important; }
+  .card-item { width: 88vw; height: 360px; }
+  #typing-text { font-size: 1.8rem; }
+}
